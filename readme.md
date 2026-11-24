@@ -113,7 +113,4 @@ The Hospital Management System (HMS) is a comprehensive and integrated software 
 - HTML : Version 5
 
 ### Operating System:
-- macOS : Sonoma 14.1.2
-
-## Other
-This Project was created under course "Software Engineering Immersive" presented by student of General Assembly Australia
+- Windows 11
