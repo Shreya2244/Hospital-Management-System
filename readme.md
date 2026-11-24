@@ -114,3 +114,9 @@ The Hospital Management System (HMS) is a comprehensive and integrated software 
 
 ### Operating System:
 - Windows 11
+
+👤 Author
+Shreya S S
+IT engineer
+
+📌 GitHub: (https://github.com/Shreya2244)
