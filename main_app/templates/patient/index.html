@@ -1,0 +1,52 @@
+{% extends 'patient/base.html' %}
+{% block content %}
+
+<h1>Patient Dashboard</h1>
+<hr>
+
+<div class="row">
+  <h2>Current Appointments</h2>
+  {% for appointment in current_appointments %}
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            {% if appointment.doctor %}
+              Dr. {{ appointment.doctor.name }}
+            {% else %}
+              Pending Doctor Assignment
+            {% endif %}
+          </span>
+          {% if appointment.date and appointment.time %}
+              <p>Date and Time: {{ appointment.date }} at {{ appointment.time }}</p>
+            {% else %}
+              <p>Date and Time: Pending</p>
+            {% endif %}
+          <p>Purpose: {{ appointment.purpose }}</p>
+          <p>Status: {{ appointment.status }}</p>
+          <div class="card-action">
+            <a href="{% url 'appointment_detail' appointment.pk %}">Appointment Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No current appointments.</p>
+  {% endfor %}
+</div>
+
+<div class="row">
+    <h2>Make a New Appointment Request</h2>
+    <div class="col s12">
+      <form method="post" action="{% url 'appointment_request_create' %}">
+        {% csrf_token %}
+        {{ appointment_request_form.as_p }}
+        <button type="submit" class="btn">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
